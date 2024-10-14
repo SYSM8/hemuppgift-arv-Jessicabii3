@@ -26,14 +26,14 @@ namespace Hemuppgift_Arv_Temp.Game
             if (noPins == 1)
             {
                 taken = 1;
-                Console.WriteLine($"Datorn tar {taken} sticka.");
+                Console.WriteLine($"Siri tar {taken} sticka.");
 
             }
             else
             {
                 //Slumpmässigt mellan 1 och 2
                 taken=random.Next(1,Math.Min(3,noPins+1));
-                Console.WriteLine($"Datorn tar {taken} stickor.");
+                Console.WriteLine($"Siri tar {taken} stickor.");
             }
              board.TakePins(taken);
             return taken;

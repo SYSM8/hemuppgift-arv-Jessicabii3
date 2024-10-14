@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Hemuppgift_Arv_Temp.Game
 {
-    public class HumanPlayer:Player
+    public class HumanPlayer : Player
     {
 
         //Konstruktor
-        public HumanPlayer(string userId):base(userId) { }
+        public HumanPlayer(string userId) : base(userId) { }
         public override int TakePins(Board board)
         {
-            int taken = 0;
+            int taken =0;
             bool validInput = false; //Variabel för att kontrollera giltig inmatning
 
             while (!validInput)
@@ -22,7 +22,7 @@ namespace Hemuppgift_Arv_Temp.Game
                 //While-loop som körs tills användaren matar in giltig data
                 try
                 {
-                    Console.WriteLine("Ange hur många stickor du vill plocka.:");
+                    Console.WriteLine("Ange hur många stickor du vill plocka:");
                     taken = Convert.ToInt32(Console.ReadLine());
 
                     //Kontrollera om inmatningen är giltig
@@ -32,7 +32,12 @@ namespace Hemuppgift_Arv_Temp.Game
                     }
                     else if (taken > board.GetNoPins())
                     {
-                        Console.WriteLine($"Det finns inte tillräckligt med stickor. Kvartsående:{board.GetNoPins()}");
+                        Console.WriteLine($"Det finns inte tillräckligt med stickor. Kvarvarande:{board.GetNoPins()}");
+                    }
+                    else
+                    {
+                        validInput = true;
+                        
                     }
                 }
                 catch (FormatException)
@@ -46,12 +51,12 @@ namespace Hemuppgift_Arv_Temp.Game
                 }
             }
             return taken;
-        
-            }
-          
 
         }
-        
+
 
     }
+
+
+}
 
